@@ -2,6 +2,10 @@
 
 hibernate4.3.x 示例集合
 
+### Hibernate Tools 插件的安装
+
+略
+
 ### 初始化项目
 
 ```shell

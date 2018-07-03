@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="test09.ono2one_foreign">
+    <class name="Dept" table="T_DEPT">
+    	<!-- 映射主键 -->
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="native" />
+        </id>
+        
+        <!-- 映射普通属性 -->
+        <property name="name" type="java.lang.String">
+            <column name="NAME" />
+        </property>
+        
+        <!-- 映射关联属性 -->
+		<one-to-one name="mgr" class="Mgr" property-ref="dept" cascade="delete,delete-orphan"/>
+    </class>
+</hibernate-mapping>

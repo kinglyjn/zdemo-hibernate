@@ -13,14 +13,14 @@
 		<mysql-connector.version>5.1.39</mysql-connector.version>
 	</properties>
 	
-	<!-- 依赖包配置 -->
+	
+	<!-- 依赖管理 -->
 	<dependencies>
 		<!-- test -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
-			<scope>test</scope>
 		</dependency>
 		
 		<!-- hibernate -->
@@ -48,10 +48,12 @@
 		</dependency>
 	</dependencies>
 	
-	<!-- 构建配置 -->
+	
+	<!-- 构建管理 -->
 	<build>
 		<finalName>zdemo-hibernate</finalName>
 		<plugins>
+			<!-- 编译插件 -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -59,6 +61,20 @@
 				<configuration>
 					<source>${java.version}</source>
 					<target>${java.version}</target>
+				</configuration>
+			</plugin>
+			<!-- 源码插件 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>3.1.0</version>
+				<configuration>
+					<!-- 设置 maven 参数占位符 -->
+					<useDefaultDelimiters>false</useDefaultDelimiters>
+					<delimiters>
+						<delimiter>@*@</delimiter>
+					</delimiters>
+					<encoding>UTF-8</encoding>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -73,4 +89,22 @@
 			</resource>
 		</resources>
 	</build>
+	
+	
+	<!-- 环境管理 -->
+	<profiles>
+		<!-- 本地开发环境 -->
+		<profile>
+			<id>dev</id>
+			<properties>
+				<jdbc.driver>com.mysql.jdbc.Driver</jdbc.driver>
+				<test.jdbc.url><![CDATA[jdbc:mysql://192.168.1.96:3306/htest?useUnicode=true&amp;characterEncoding=UTF-8]]></test.jdbc.url> 
+				<test.jdbc.username>zhangqingli</test.jdbc.username>
+				<test.jdbc.password>qweasd</test.jdbc.password>
+			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>			
+		</profile>
+	</profiles>
 </project>

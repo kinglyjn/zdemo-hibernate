@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="test11.many2many_oneway">
+    <class name="Category" table="T_CATEGORY">
+    	<!-- 映射主键 -->
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="native" />
+        </id>
+        
+        <!-- 映射普通字段 -->
+        <property name="name" type="java.lang.String">
+            <column name="NAME" />
+        </property>
+        
+        <!-- 映射关系属性 -->
+        <set name="items" table="T_CATEGORY_ITEM">
+            <key>
+                <column name="C_ID" />
+            </key>
+            <many-to-many class="Item" column="I_ID" />
+        </set>
+    </class>
+</hibernate-mapping>

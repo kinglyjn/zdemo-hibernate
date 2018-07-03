@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="test08.many2one_twoway">
+    <class name="Customer" table="T_CUSTOMER">
+        <!-- 映射主键 -->
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="native" />
+        </id>
+        
+        <!-- 映射普通类型 -->
+        <property name="name" type="java.lang.String">
+            <column name="NAME" />
+        </property>
+        
+        <!-- 映射关联属性 -->
+        <set name="orders" table="T_ORDER" inverse="true" cascade="delete,save-update" order-by="ID DESC">
+            <key column="CUSTOMER_ID"/>
+            <one-to-many class="Order" />
+        </set>
+    </class>
+</hibernate-mapping>
