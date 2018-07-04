@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="test19.session_manager">
+    <class name="Dept" table="T_DEPT">
+        <!-- 映射主键 -->
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="native" />
+        </id>
+        
+        <!-- 映射普通属性 -->
+        <property name="name" type="java.lang.String">
+            <column name="NAME" />
+        </property>
+        
+        <!-- 映射关系属性 -->
+        <set name="emps" table="T_EMP" inverse="true" lazy="true" cascade="save-update">
+            <key>
+                <column name="DEPT_ID" />
+            </key>
+            <one-to-many class="Emp" />
+        </set>
+    </class>
+</hibernate-mapping>

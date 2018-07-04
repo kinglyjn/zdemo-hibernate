@@ -78,19 +78,19 @@
 		<!-- <mapping resource="test14/joined_subclass/Person.hbm.xml"/> -->
 		
 		<!-- test15.union_subclass -->
-		<mapping resource="test15/union_subclass/Person.hbm.xml"/>
+		<!-- <mapping resource="test15/union_subclass/Person.hbm.xml"/> -->
 		
-		<!-- hb17.hql_qbc_sql -->
-		<!-- <mapping resource="hb17/hql_qbc_sql/Emp.hbm.xml"/>
-		<mapping resource="hb17/hql_qbc_sql/Dept.hbm.xml"/> -->
+		<!-- test17.hql_qbc_sql -->
+		<!-- <mapping resource="test17/hql_qbc_sql/Emp.hbm.xml"/>
+		<mapping resource="test17/hql_qbc_sql/Dept.hbm.xml"/> -->
 		
-		<!-- hb18.second_level_cache -->
-		<!-- <mapping resource="hb18/second_level_cache/Emp.hbm.xml"></mapping>
-		<mapping resource="hb18/second_level_cache/Dept.hbm.xml"></mapping> -->
+		<!-- test18.second_level_cache -->
+		<!-- <mapping resource="test18/second_level_cache/Emp.hbm.xml"></mapping>
+		<mapping resource="test18/second_level_cache/Dept.hbm.xml"></mapping> -->
 		
-		<!-- hb19.session_manager -->
-		<!-- <mapping resource="hb19/session_manager/Emp.hbm.xml"/> -->
-		<!-- <mapping resource="hb19/session_manager/Dept.hbm.xml"/> -->
+		<!-- test19.session_manager -->
+		<mapping resource="test19/session_manager/Emp.hbm.xml"/>
+		<mapping resource="test19/session_manager/Dept.hbm.xml"/>
 		
 		<!-- 配置要缓存的类和集合（注意放在最后，也可以在hbm映射文件里面配置） -->
 		<!-- 
